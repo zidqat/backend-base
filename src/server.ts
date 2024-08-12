@@ -11,8 +11,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/operar", (req, res) => {
+  
   const a = parseInt(req.query.a as string);
   const b = parseInt(req.query.b as string);
+  
   const oper = req.query.oper as string;
 
   const resultado = operar(oper, a, b);
