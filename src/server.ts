@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
   res.send(`Hola mundo al usuario ${configuration.username}`);
 });
 
-app.get("/suma", (req, res) => {
+app.get("/operar", (req, res) => {
   const a = parseInt(req.query.a as string);
   const b = parseInt(req.query.b as string);
   const oper = req.query.oper as string;
