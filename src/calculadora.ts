@@ -1,0 +1,21 @@
+function operar(operacion: string, a: number, b: number) {
+    if (operacion === 'suma') {
+        return suma(a, b);
+    }
+}
+
+function suma(a: number, b: number) {
+
+    if (a === undefined || b === undefined) {
+        console.log("retornando throw")
+        throw new Error("No se puede sumar indefinidos");
+    }
+
+    if (typeof a !== 'number' || typeof b !== 'number') {
+        return NaN;
+    }
+
+    return a + b;
+}
+
+export { suma, operar };
