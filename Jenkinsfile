@@ -5,6 +5,7 @@ pipeline {
             agent {
                 docker {
                     image 'node:20.11.1-alpine3.19' 
+                    reuseNode true
                 }
             }
             stages {
@@ -23,6 +24,11 @@ pipeline {
                        sh 'npm run build'
                    }
                } 
+            }
+        }
+        stage('deploy'){
+            steps {
+                sh 'docker build -t backend-base:latest .'
             }
         }
     }
