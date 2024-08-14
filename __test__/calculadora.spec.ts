@@ -9,7 +9,7 @@ describe("Calculadora", () => {
 
         let a: any = 100;
         let b: any = 200;
-        expect(suma(a, b)).toBe(200);
+        expect(suma(a, b)).toBe(300);
 
         a = 10;
         b = "a";
