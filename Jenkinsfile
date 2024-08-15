@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+        MYSQL_USER=wordpress
+    }
+
     stages {
         stage('Build and test') {
             agent {
@@ -31,6 +35,11 @@ pipeline {
                 sh 'docker build -t backend-base:latest .'
                 sh 'docker tag backend-base:latest localhost:8082/backend-base:latest'
                 sh 'docker push localhost:8082/backend-base:latest'
+            }
+        }
+        stage('deploy'){
+            steps {
+                sh 'docker compose up -d'
             }
         }
     }
