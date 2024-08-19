@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    environmet{
+    environment{
         USERNAME = cmd
     }
     stages {
