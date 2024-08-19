@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment{
-        USERNAME = cmd
+        USERNAME = 'cmd'
     }
     stages {
         stage('Build and test') {
