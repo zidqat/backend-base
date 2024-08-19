@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environmet{
+        USERNAME = cmd
+    }
     stages {
         stage('Build and test') {
             agent {
@@ -26,7 +29,7 @@ pipeline {
                } 
             }
         }
-        stage('deploy'){
+        stage('delivery'){
             steps {
                 sh 'docker build -t backend-base:latest .'
                 sh 'docker tag backend-base:latest localhost:8082/backend-base:latest'
