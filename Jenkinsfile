@@ -58,7 +58,7 @@ pipeline {
                     docker.withRegistry('http://localhost:8082', 'nexus-key') {
                         withCredentials([file(credentialsId: "${ambiente}-env", variable: 'ENV_FILE')]) {
                             sh "docker compose pull"
-                            sh "docker compose up --force-recreate --build  -d --env-file ENV_FILE"
+                            sh "docker compose --force-recreate --build  --env-file ENV_FILE -d up"
                         }
                     }
                 }
