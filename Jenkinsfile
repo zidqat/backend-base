@@ -79,7 +79,6 @@ pipeline {
                     } else {
                         ambiente = 'dev'
                     }
-
                     docker.withRegistry('http://localhost:8082', 'nexus-key') {
                         withCredentials([file(credentialsId: "${ambiente}-env", variable: 'ENV_FILE')]) {
                             writeFile file: '.env', text: readFile(ENV_FILE)
