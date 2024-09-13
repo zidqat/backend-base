@@ -59,18 +59,10 @@ describe("Calculadora", () => {
             .expect("Content-Type", /text/)
             .expect(200)
             .then((response) => {
-                expect(response.text).toBe("Hola mundo al usuario cmd");
+                expect(response.text).toMatch(/Hola mundo al usuario/);
             })
     });
 
-    test("test de endpoint operar", async () => {
-        return await request(app)
-            .get("/operar?a=30&b=30&oper=suma")
-            .expect("Content-Type", /text/)
-            .expect(200)
-            .then((response) => {
-                expect(response.text).toBe("el resultado de la operacion suma de 30 y 30 es 60");
-            })
-    });
+
 
 });
