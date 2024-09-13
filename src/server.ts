@@ -33,11 +33,6 @@ const authenticate = (req: Request, res: Response, next: NextFunction) => {
   return;
 };
 
-app.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'Bienvenido a express' });
-  console.log(req.headers);
-});
-
 // Endpoint GET
 app.get('/api/get_endpoint', authenticate, (req: Request, res: Response) => {
   res.json({ message: 'Este es un endpoint GET protegido.' });

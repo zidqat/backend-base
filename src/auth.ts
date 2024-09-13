@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import db from './db.json' 
+import db from './data/db.json' 
 
 
 export const validatePlainUser = (user: string, password: string) => {
