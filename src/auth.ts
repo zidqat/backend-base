@@ -1,6 +1,6 @@
-import jwt from 'jsonwebtoken';
-import db from './data/db.json' 
-
+import jwt, { JwtPayload } from 'jsonwebtoken';
+import db from './data/db.json'
+const authToken = 'miTokenSecreto';
 
 export const validatePlainUser = (user: string, password: string) => {
     if (user === db.plainUser.username && password === db.plainUser.password) {
@@ -8,7 +8,23 @@ export const validatePlainUser = (user: string, password: string) => {
     }
     return false;
 }
+export const authorize = (token: string) => {
+    return token === `Bearer ${authToken}`
+};
 
+export interface JwtRequest extends Request {
+    token: string | JwtPayload;
+}
+
+export const authenticateJwt = (token: string) => {
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY ?? '');
+        console.log(decoded)
+        return true;
+    } catch (err) {
+        return false;
+    }
+};
 
 export const validateUser = (user: string, password: string) => {
     if (user === db.User.username && password === db.User.password) {
