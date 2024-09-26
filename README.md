@@ -1,6 +1,6 @@
 Readme.md
 # backend-base
-# api-authentication
+## Autenticacion
 debes crear tu fichero .env en la carpeta raiz del proyecto y configurar tu llave de firmado jwt asi:
 
 JWT_SECRET_KEY=mi-llave
