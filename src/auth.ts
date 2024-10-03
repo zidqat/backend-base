@@ -1,6 +1,7 @@
 import jwt, { JwtPayload } from 'jsonwebtoken';
-import db from './data/db.json' assert { type: "json" };
+import { db } from './data/db.js';
 const authToken = 'miTokenSecreto';
+
 
 export const validatePlainUser = (user: string, password: string) => {
     if (user === db.plainUser.username && password === db.plainUser.password) {
