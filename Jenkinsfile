@@ -2,11 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('etapa 1'){
-            steps{
-                echo 'hola mundo'
-                sh 'echo "hola mundo"'
+        stage('etapa de construccion de aplicacion'){
+            agent {
+                docker {
+                    image 'node:alpine3.20'
+                }
             }
+            stages {
+                stage('Install'){
+                    steps{
+                        sh 'npm install'
+                    }
+                }
+            }            
         }
     }
 }
