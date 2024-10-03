@@ -8,12 +8,18 @@ pipeline {
             agent {
                 docker {
                     image 'node:alpine3.20'
+                    reuseMode true
                 }
             }
             stages {
                 stage('Install'){
                     steps{
                         sh 'npm install'
+                    }
+                }
+                stage('Test'){
+                    steps{
+                        sh 'npm run test'
                     }
                 }
             }            
